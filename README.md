@@ -4,6 +4,13 @@ This repo is STM32F103C8T6 microcontroller with FreeRTOS using Keil and STM32Cub
 
 Both methods (HAL and Register-based) are viable for STM32 development, with HAL providing ease of use and register manipulation offering greater control.
 
+## Table of Contents
+
+- [STM32F103C8T6 Development using Keil](#stm32f103c8t6-development-using-keil)
+  - [1. Development Using HAL (Hardware Abstraction Layer)](#1-development-using-hal-hardware-abstraction-layer)
+  - [2. Development Using Direct Register Manipulation](#2-development-using-direct-register-manipulation)
+- [Debugging Methods for Embedded Systems](#debugging-methods-for-embedded-systems)
+
 ## STM32F103C8T6 Development using Keil
 
 This part contains two examples of developing applications for the STM32F103C8T6 microcontroller using Keil. One example is based on the **HAL (Hardware Abstraction Layer)** library, while the other uses **direct register manipulation** for more control over the hardware.
@@ -54,7 +61,7 @@ Direct register programming offers finer control and faster execution by directl
 
 #### Steps:
 
-1. **Create a New Keil Project** and select STM32F103C8T6 as the target.
+1. **Create a New Keil Project** and select STM32F103C8T6 as the target. (Using [CMSIS-DAP](https://github.com/ARM-software/CMSIS-DAP))
 2. **Add CMSIS and Startup Files**.
 3. **Enable GPIOA Clock and Configure GPIO Registers**.
 4. **Write the Main Application Code**.
@@ -91,3 +98,38 @@ void delay_ms(uint32_t ms)
     }
 }
 ```
+
+## Debugging Methods for Embedded Systems
+
+- **Serial Debugging**:
+
+  - Send debug information to the computer via serial communication.
+  - Use serial assistant tools (e.g., Tera Term, PuTTY) to display data.
+
+- **Display Debugging**:
+
+  - Connect a display (LCD, OLED) directly to the microcontroller.
+  - Print debug information on the display in real-time.
+
+- **Keil Debugging Mode**:
+
+  - Use Keil's debug features: step-by-step execution, breakpoints, register/variable inspection.
+
+- **JTAG/SWD Debugging**:
+
+  - Use JTAG/SWD interfaces for real-time access to internal states.
+  - Enables advanced debugging with breakpoints and tracing.
+
+- **Logic Analyzer**:
+
+  - Monitor communication protocols like I2C, SPI, or UART.
+  - Capture and analyze electrical signals to debug communication issues.
+
+- **On-Chip Debugging (OCD)**:
+
+  - Use microcontroller’s built-in debugging hardware for real-time debugging.
+  - Useful for power-sensitive applications.
+
+- **Simulator Debugging**:
+  - Simulate microcontroller behavior in IDEs (e.g., Keil) without hardware.
+  - Perform unit testing and debugging in a virtual environment.
